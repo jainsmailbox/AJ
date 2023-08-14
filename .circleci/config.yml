@@ -17,7 +17,7 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World main !"
-  print-hello:
+  print-env-var:
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/configuration-reference/#executor-job
     docker:
@@ -28,13 +28,13 @@ jobs:
       - checkout
       - run:
           name: "Print hello"
-          command: "echo Hello, World main second !"          
+          command: "echo $AJ_ENV1"          
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - print-hello:
+      - print-env-var:
          requires:
            - say-hello
