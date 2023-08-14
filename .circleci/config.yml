@@ -28,7 +28,12 @@ jobs:
       - checkout
       - run:
           name: "Print hello"
-          command: "echo $AJ_ENV1"          
+          command: "echo $AJ_ENV1"  
+      - run:
+          name: "Print branch"
+          command: echo $CIRCLE_BRANCH
+        
+                  
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
