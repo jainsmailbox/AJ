@@ -57,5 +57,5 @@ workflows:
            - say-hello
       - print_output_file:
           requires:
-            - ssay-hello
+            - say-hello
 
